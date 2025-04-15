@@ -4,11 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Just Some JS Training</title>
+    <link rel="stylesheet" href="style.css" />
     <script type="module" src="./index.js"></script>
   </head>
   <body>
     <h1>Just Some JS Training</h1>
 
+    <h2>Contact Form</h2>
     <form id="contact-form">
       <input type="text" id="name" placeholder="Name" required />
       <input type="text" id="email" placeholder="Email" required />
@@ -17,6 +19,12 @@
 
     <div id="confirmation" style="display: none">
       Your information has been successfully sent ✅
+    </div>
+
+    <h2>Toggle visibility</h2>
+    <button type="button" id="toggle-button">Click me and you'll see</button>
+    <div id="secret-div" class="hide-secret">
+      There is a basilisk sleeping in the Chamber.
     </div>
   </body>
 </html>

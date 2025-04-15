@@ -13,3 +13,8 @@ contactForm.addEventListener('submit', (event) => {
     alert('Please enter a valid name and email.');
   }
 });
+
+// Goal: Toggle visibility of a div on button click.
+document.getElementById('toggle-button').addEventListener('click', () => {
+  document.getElementById('secret-div').classList.toggle('hide-secret');
+});
