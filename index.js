@@ -57,10 +57,12 @@ const fetchUsers = async () => {
     const response = await fetch("https://jsonplaceholder.typicode.com/users");
     const data = await response.json();
 
-    data.map((item) => {
-      return (document.getElementById(
-        "fake-users"
-      ).innerHTML += `<p>Fake user name: ${item.name}</p>`);
+    const container = document.getElementById("fake-users");
+
+    data.forEach((item) => {
+      const paragraph = document.createElement("p");
+      paragraph.textContent = `Fake user name: ${item.name}`;
+      container.appendChild(paragraph);
     });
   } catch (err) {
     console.error("Failed to fetch users: ", err);
