@@ -43,3 +43,27 @@ const mapArray = (arr) => {
 
 console.log(doubleArray([1, 2, 3]));
 console.log(mapArray([4, 5, 6]));
+
+// Consume a Mock API
+// Goal: Fetch and display data from a fake JSON API
+const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+const data = await response.json();
+document.getElementById("fake-api").innerHTML += `
+  <p>Numero Uno todo task is: ${data.title}</p>
+`;
+
+const fetchUsers = async () => {
+  try {
+    const response = await fetch("https://jsonplaceholder.typicode.com/users");
+    const data = await response.json();
+
+    data.map((item) => {
+      return (document.getElementById(
+        "fake-users"
+      ).innerHTML += `<p>Fake user name: ${item.name}</p>`);
+    });
+  } catch (err) {
+    console.error("Failed to fetch users: ", err);
+  }
+};
+fetchUsers();
