@@ -115,3 +115,59 @@ const maskDigits = (str) => {
     .replace(/(.{4})/g, "$1 ");
 };
 console.log("maskDigits: ", maskDigits("1234 5678 9012 3456"));
+
+// Capitalize Each Word
+// Task: Capitalize the first letter of each word in a sentence.
+const capitalizeWords = (str) => {
+  return str.toUpperCase();
+};
+console.log("capitalizeWords: ", capitalizeWords("jsem velká písmenka"));
+
+// Find the First Vowel
+// Task: Return the index of the first vowel in a string. If none, return -1.
+const findVowel = (str) => {
+  return str.search(/[aeiou ]/i);
+};
+console.log("findVowel: ", findVowel("sAkksksksajkhfjkdsa"));
+
+const findVowelLoop = (str) => {
+  const vowels = "aeiouAEIOU";
+  for (let i = 0; i < str.length; i++) {
+    if (vowels.includes(str[i])) return i;
+  }
+  return -1;
+};
+console.log("findVowelLoop: ", findVowelLoop("sAkksksksajkhfjkdsa"));
+
+// Check for Forbidden Word
+// Task: Write a function that checks if a string contains a "forbidden" word like "password" or "1234"
+const containsForbiddenWord = (str) => {
+  const forbiddenWord = "password";
+  return str.includes(forbiddenWord);
+};
+console.log(
+  "containsForbiddenWord: ",
+  containsForbiddenWord("my password is strong")
+);
+
+// Count Occurrences of a Letter
+// Task: Count how many times a specific letter appears in a string, case-insensitive.
+const countLetters = (str, letter) => {
+  const target = letter.toLowerCase();
+  return [...str.toLowerCase()].filter((char) => char === target).length;
+};
+console.log("countLetters: ", countLetters("Potterovi jsou pravá rodina", "p"));
+
+// Mask an Email Address
+// Task: Mask all characters in the username of an email except the first and last.
+// "sarka@email.com" => "s***a@email.com"
+const maskEmail = (email) => {
+  const atPosition = Number(email.indexOf("@"));
+  const user = email.slice(0, atPosition);
+  const domain = email.slice(atPosition);
+  if (user.length <= 2) return email;
+
+  const masked = user[0] + "*".repeat(user.length - 2) + user.slice(-1);
+  return `${masked}${domain}`;
+};
+console.log("maskEmail: ", maskEmail("potteristhechosenone@email.com"));
