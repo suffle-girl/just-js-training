@@ -162,7 +162,7 @@ console.log("countLetters: ", countLetters("Potterovi jsou pravá rodina", "p"))
 // Task: Mask all characters in the username of an email except the first and last.
 // "sarka@email.com" => "s***a@email.com"
 const maskEmail = (email) => {
-  const atPosition = Number(email.indexOf("@"));
+  const atPosition = email.indexOf("@");
   const user = email.slice(0, atPosition);
   const domain = email.slice(atPosition);
   if (user.length <= 2) return email;
