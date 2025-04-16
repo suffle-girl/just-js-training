@@ -171,3 +171,37 @@ const maskEmail = (email) => {
   return `${masked}${domain}`;
 };
 console.log("maskEmail: ", maskEmail("potteristhechosenone@email.com"));
+
+// Reverse string with loop
+const reverseString1 = (str) => {
+  const array = str.split("");
+  let reverseArray = [];
+  for (let i = str.length - 1; i >= 0; i--) {
+    reverseArray.push(array[i]);
+  }
+  return reverseArray.join("");
+};
+console.log("reverseString1: ", reverseString1("welcome"));
+
+// Reverse string with string methods
+const reverseString2 = (str) => {
+  return str.split("").reverse().join("");
+};
+console.log("reverseString2: ", reverseString2("hello"));
+
+// Find Max with loop
+const findMaxLoop = (arr) => {
+  let highestNumber = arr[0];
+  arr.forEach((num) => {
+    if (num > highestNumber) highestNumber = num;
+  });
+  return highestNumber;
+};
+
+console.log("findMaxLoop: ", findMaxLoop([-10, -5, -3, -1])); // Output: 8
+
+// Find Max with array methods
+const findMaxMethod = (arr) => {
+  return Math.max(...arr);
+};
+console.log("findMaxMethod: ", findMaxMethod([-10, -5, -3, -1])); // Output: 8
