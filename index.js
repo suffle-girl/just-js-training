@@ -69,3 +69,49 @@ const fetchUsers = async () => {
   }
 };
 fetchUsers();
+
+//  Reverse a String
+// Task: Write a function that takes a string and returns it reversed.
+const reverseString = (str) => {
+  return str.split("").reverse().join("");
+};
+const reversedString = reverseString("Hello Vulcan!");
+document.getElementById("reverse-string").textContent = reversedString;
+
+// Remove Extra Spaces
+// Task: Normalize a string by trimming it and removing extra spaces between words.
+// "   Hello   world    " => "Hello world"
+const normalizeString = (str) => {
+  return str.trim().replace(/\s+/g, " ");
+};
+const stringToNormalize = "   o    Hello     World!    ";
+console.log("stringToNormalize: ", stringToNormalize);
+const normalizedString = normalizeString(stringToNormalize);
+console.log("normalizedString: ", normalizedString);
+
+// Remove All Digits from a String
+// Input: "abc123def456"
+// Output: "abcdef"
+const removeDigits = (str) => {
+  return str.replace(/\d+/g, "");
+};
+console.log("removeDigits:", removeDigits("abc123def456"));
+
+// Keep Only Letters (Remove Symbols & Numbers)
+// Input: "Hello! My name is #42."
+// Output: "HelloMynameis"
+const keepOnlyLetters = (str) => {
+  return str.replace(/\d+/g, "").replace(/[^a-zA-Z]/g, "");
+};
+console.log("keepOnlyLetters: ", keepOnlyLetters("Hello! My name is #42."));
+
+// Mask All Digits Except the Last 4
+// Input: "1234 5678 9012 3456"
+// Output: "**** **** **** 3456"
+const maskDigits = (str) => {
+  return str
+    .replace(/\s+/g, "")
+    .replace(/\d(?=\d{4})/g, "*")
+    .replace(/(.{4})/g, "$1 ");
+};
+console.log("maskDigits: ", maskDigits("1234 5678 9012 3456"));
