@@ -239,3 +239,19 @@ console.log("splitToTwoRegex: ", splitToTwoRegex("abcde"));
 //    {2} — this is a quantifier: "exactly 2 of the previous thing" → so it means two characters.
 //    g — the global flag, which means "find all matches in the string", not just the first one.
 // match() returns an array of those matches, or null if there’s no match — so the || [] guards against that.
+
+// Square and sum array of numbers
+const squareSum = (numbers) => {
+  let result = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    result += numbers[i] * numbers[i];
+  }
+  return result;
+};
+console.log("squareSum: ", squareSum([1, 2, 3, 5, 7]));
+
+// Square and sum array of numbers - with reduce
+const squareSumReduce = (numbers) => {
+  return numbers.reduce((prev, curr) => prev + curr * curr, 0);
+};
+console.log("squareSumReduce: ", squareSumReduce([1, 2, 3, 5, 7]));
