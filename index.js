@@ -205,3 +205,37 @@ const findMaxMethod = (arr) => {
   return Math.max(...arr);
 };
 console.log("findMaxMethod: ", findMaxMethod([-10, -5, -3, -1])); // Output: 8
+
+// Split the string into pairs of two characters, return array of strings
+const splitToTwo = (str) => {
+  let remainingString = str;
+  let arrayOfPairs = [];
+  while (remainingString.length !== 0) {
+    const twoChar = remainingString.slice(0, 2);
+    const theRest = remainingString.slice(2);
+
+    if (twoChar.length === 1) {
+      arrayOfPairs.push(twoChar + "_");
+    } else {
+      arrayOfPairs.push(twoChar);
+    }
+
+    remainingString = theRest;
+  }
+
+  return arrayOfPairs;
+};
+console.log("splitToTwo: ", splitToTwo("abcde"));
+
+// Split the string into pairs of two characters, return array of strings - with regex
+const splitToTwoRegex = (str) => {
+  if (str.length % 2 !== 0) str += "_";
+  return str.match(/.{2}/g) || [];
+};
+console.log("splitToTwoRegex: ", splitToTwoRegex("abcde"));
+// we use a regex (/.{2}/g) to match every 2 characters.
+//    / ... / — this is just the regex literal syntax in JavaScript.
+//    . — matches any character (except line breaks).
+//    {2} — this is a quantifier: "exactly 2 of the previous thing" → so it means two characters.
+//    g — the global flag, which means "find all matches in the string", not just the first one.
+// match() returns an array of those matches, or null if there’s no match — so the || [] guards against that.
