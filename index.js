@@ -70,7 +70,7 @@ const fetchUsers = async () => {
 };
 fetchUsers();
 
-//  Reverse a String
+// Reverse a String
 // Task: Write a function that takes a string and returns it reversed.
 const reverseString = (str) => {
   return str.split('').reverse().join('');
@@ -126,7 +126,7 @@ console.log('capitalizeWords: ', capitalizeWords('jsem velká písmenka'));
 // Find the First Vowel
 // Task: Return the index of the first vowel in a string. If none, return -1.
 const findVowel = (str) => {
-  return str.search(/[aeiou ]/i);
+  return str.search(/[aeiou]/i);
 };
 console.log('findVowel: ', findVowel('sAkksksksajkhfjkdsa'));
 
@@ -255,6 +255,17 @@ const squareSumReduce = (numbers) => {
   return numbers.reduce((prev, curr) => prev + curr * curr, 0);
 };
 console.log('squareSumReduce: ', squareSumReduce([1, 2, 3, 5, 7]));
+
+// Break camel case with " "
+const breakCamelCase = (string) => {
+  if (string.length === 0) {
+    return '';
+  }
+
+  return string.split(/(?=[A-Z])/g).join(' ');
+};
+console.log('breakCamelCase: ', breakCamelCase('camelCasingIsCool'));
+// add (?=...) to the regex in order to not discard the chars we are looking for
 
 // Generate # - must start with #, all first letters capitalized, no longer than 140 ch, empty returns false
 const generateHashtag = (str) => {
