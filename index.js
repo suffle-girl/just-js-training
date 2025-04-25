@@ -267,6 +267,28 @@ const breakCamelCase = (string) => {
 console.log("breakCamelCase: ", breakCamelCase("camelCasingIsCool"));
 // add (?=...) to the regex in order to not discard the chars we are looking for
 
+// Generate # - must start with #, all first letters capitalized, no longer than 140 ch, empty returns false
+const generateHashtag = (str) => {
+  if (str.trim() === "") return false;
+
+  const wordArray = str.split(" ");
+  const filteredWords = wordArray.filter((item) => {
+    return item;
+  });
+
+  const capitalizedWords = filteredWords.map((word) => {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  });
+
+  const hashtag = `#${capitalizedWords.join("")}`;
+  return hashtag.length > 140 ? false : hashtag;
+};
+console.log("generateHashtag: ", generateHashtag("    Hello     World   "));
+console.log(
+  "generateHashtag: ",
+  generateHashtag(" Hello there thanks for trying my Kata")
+);
+
 // Turn Roman numeral as  argument into a numeric decimal integer without validating the form of the Roman numeral.
 
 // Modern Roman numerals are written by expressing each decimal digit of the number to be encoded separately, starting with the leftmost digit and skipping any 0s. So 1990 is rendered "MCMXC" (1000 = M, 900 = CM, 90 = XC) and 2008 is rendered "MMVIII" (2000 = MM, 8 = VIII). The Roman numeral for 1666, "MDCLXVI", uses each letter in descending order.
