@@ -328,3 +328,16 @@ const romanToDecimal = (str) => {
   return year;
 };
 console.log("romanToDecimal: ", romanToDecimal("MDCLXVI"));
+
+// Given an array of integers, remove the smallest value. Do not mutate the original array/list.
+const removeSmallest = (arr) => {
+  if (arr.length === 0) return [];
+  const atPosition = arr.indexOf(Math.min(...arr));
+
+  const newArray = [...arr];
+  newArray.splice(atPosition, 1);
+  return newArray;
+};
+console.log("removeSmallest: ", removeSmallest([1, 2, 3, 4, 5]));
+console.log("removeSmallest: ", removeSmallest([5, 3, 2, 1, 4]));
+console.log("removeSmallest: ", removeSmallest([]));
