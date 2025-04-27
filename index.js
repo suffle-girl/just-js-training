@@ -349,3 +349,23 @@ const addBinary = (a, b) => {
 };
 console.log('addBinary: ', addBinary(1, 1));
 console.log('addBinary: ', addBinary(5, 9));
+
+// Function, which takes a non-negative integer (seconds) as input and returns the time in a human-readable format (HH:MM:SS)
+const secondsToHuman = (seconds) => {
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const remainingSeconds = seconds % 60;
+  return (
+    String(hours).padStart(2, '0') +
+    ':' +
+    String(minutes).padStart(2, '0') +
+    ':' +
+    String(remainingSeconds).padStart(2, '0')
+  );
+};
+console.log('secondsToHuman: ', secondsToHuman(0));
+console.log('secondsToHuman: ', secondsToHuman(59));
+console.log('secondsToHuman: ', secondsToHuman(3599));
+console.log('secondsToHuman: ', secondsToHuman(45296));
+console.log('secondsToHuman: ', secondsToHuman(86400));
+console.log('secondsToHuman: ', secondsToHuman(359999));
