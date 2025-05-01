@@ -369,3 +369,10 @@ console.log('secondsToHuman: ', secondsToHuman(3599));
 console.log('secondsToHuman: ', secondsToHuman(45296));
 console.log('secondsToHuman: ', secondsToHuman(86400));
 console.log('secondsToHuman: ', secondsToHuman(359999));
+
+// Function that computes the difference between two lists. The function should remove all occurrences of elements from the first list (a) that are present in the second list (b). The order of elements in the first list should be preserved in the result.
+const arrayDiff = (a, b) => {
+  return a.filter((item) => !b.includes(item));
+};
+console.log('arrayDiff: ', arrayDiff([1, 2], [2]));
+console.log('arrayDiff: ', arrayDiff([1, 2, 2, 2, 3], [2]));
