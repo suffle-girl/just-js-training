@@ -1,22 +1,22 @@
 // Goal: Create a simple contact form with validation and confirmation message.
 // Tech: HTML, CSS, JS
 
-const contactForm = document.getElementById('contact-form');
-contactForm.addEventListener('submit', (event) => {
+const contactForm = document.getElementById("contact-form");
+contactForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
 
-  if (name && email.includes('@')) {
-    document.getElementById('confirmation').style.display = 'block';
+  if (name && email.includes("@")) {
+    document.getElementById("confirmation").style.display = "block";
   } else {
-    alert('Please enter a valid name and email.');
+    alert("Please enter a valid name and email.");
   }
 });
 
 // Goal: Toggle visibility of a div on button click.
-document.getElementById('toggle-button').addEventListener('click', () => {
-  document.getElementById('secret-div').classList.toggle('hide-secret');
+document.getElementById("toggle-button").addEventListener("click", () => {
+  document.getElementById("secret-div").classList.toggle("hide-secret");
 });
 
 // Fix this bug
@@ -46,26 +46,26 @@ console.log(mapArray([4, 5, 6]));
 
 // Consume a Mock API
 // Goal: Fetch and display data from a fake JSON API
-const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
 const data = await response.json();
-document.getElementById('fake-api').innerHTML += `
+document.getElementById("fake-api").innerHTML += `
   <p>Numero Uno todo task is: ${data.title}</p>
 `;
 
 const fetchUsers = async () => {
   try {
-    const response = await fetch('https://jsonplaceholder.typicode.com/users');
+    const response = await fetch("https://jsonplaceholder.typicode.com/users");
     const data = await response.json();
 
-    const container = document.getElementById('fake-users');
+    const container = document.getElementById("fake-users");
 
     data.forEach((item) => {
-      const paragraph = document.createElement('p');
+      const paragraph = document.createElement("p");
       paragraph.textContent = `Fake user name: ${item.name}`;
       container.appendChild(paragraph);
     });
   } catch (err) {
-    console.error('Failed to fetch users: ', err);
+    console.error("Failed to fetch users: ", err);
   }
 };
 fetchUsers();
@@ -73,81 +73,81 @@ fetchUsers();
 // Reverse a String
 // Task: Write a function that takes a string and returns it reversed.
 const reverseString = (str) => {
-  return str.split('').reverse().join('');
+  return str.split("").reverse().join("");
 };
-const reversedString = reverseString('Hello Vulcan!');
-document.getElementById('reverse-string').textContent = reversedString;
+const reversedString = reverseString("Hello Vulcan!");
+document.getElementById("reverse-string").textContent = reversedString;
 
 // Remove Extra Spaces
 // Task: Normalize a string by trimming it and removing extra spaces between words.
 // "   Hello   world    " => "Hello world"
 const normalizeString = (str) => {
-  return str.trim().replace(/\s+/g, ' ');
+  return str.trim().replace(/\s+/g, " ");
 };
-const stringToNormalize = '   o    Hello     World!    ';
-console.log('stringToNormalize: ', stringToNormalize);
+const stringToNormalize = "   o    Hello     World!    ";
+console.log("stringToNormalize: ", stringToNormalize);
 const normalizedString = normalizeString(stringToNormalize);
-console.log('normalizedString: ', normalizedString);
+console.log("normalizedString: ", normalizedString);
 
 // Remove All Digits from a String
 // Input: "abc123def456"
 // Output: "abcdef"
 const removeDigits = (str) => {
-  return str.replace(/\d+/g, '');
+  return str.replace(/\d+/g, "");
 };
-console.log('removeDigits:', removeDigits('abc123def456'));
+console.log("removeDigits:", removeDigits("abc123def456"));
 
 // Keep Only Letters (Remove Symbols & Numbers)
 // Input: "Hello! My name is #42."
 // Output: "HelloMynameis"
 const keepOnlyLetters = (str) => {
-  return str.replace(/\d+/g, '').replace(/[^a-zA-Z]/g, '');
+  return str.replace(/\d+/g, "").replace(/[^a-zA-Z]/g, "");
 };
-console.log('keepOnlyLetters: ', keepOnlyLetters('Hello! My name is #42.'));
+console.log("keepOnlyLetters: ", keepOnlyLetters("Hello! My name is #42."));
 
 // Mask All Digits Except the Last 4
 // Input: "1234 5678 9012 3456"
 // Output: "**** **** **** 3456"
 const maskDigits = (str) => {
   return str
-    .replace(/\s+/g, '')
-    .replace(/\d(?=\d{4})/g, '*')
-    .replace(/(.{4})/g, '$1 ');
+    .replace(/\s+/g, "")
+    .replace(/\d(?=\d{4})/g, "*")
+    .replace(/(.{4})/g, "$1 ");
 };
-console.log('maskDigits: ', maskDigits('1234 5678 9012 3456'));
+console.log("maskDigits: ", maskDigits("1234 5678 9012 3456"));
 
 // Capitalize Each Word
 // Task: Capitalize the first letter of each word in a sentence.
 const capitalizeWords = (str) => {
   return str.toUpperCase();
 };
-console.log('capitalizeWords: ', capitalizeWords('jsem velká písmenka'));
+console.log("capitalizeWords: ", capitalizeWords("jsem velká písmenka"));
 
 // Find the First Vowel
 // Task: Return the index of the first vowel in a string. If none, return -1.
 const findVowel = (str) => {
   return str.search(/[aeiou]/i);
 };
-console.log('findVowel: ', findVowel('sAkksksksajkhfjkdsa'));
+console.log("findVowel: ", findVowel("sAkksksksajkhfjkdsa"));
 
 const findVowelLoop = (str) => {
-  const vowels = 'aeiouAEIOU';
+  const vowels = "aeiouAEIOU";
   for (let i = 0; i < str.length; i++) {
     if (vowels.includes(str[i])) return i;
   }
   return -1;
 };
-console.log('findVowelLoop: ', findVowelLoop('sAkksksksajkhfjkdsa'));
+console.log("findVowelLoop: ", findVowelLoop("sAkksksksajkhfjkdsa"));
 
 // Check for Forbidden Word
 // Task: Write a function that checks if a string contains a "forbidden" word like "password" or "1234"
 const containsForbiddenWord = (str) => {
-  const forbiddenWord = 'password';
+  const forbiddenWord = "password";
   return str.includes(forbiddenWord);
 };
 console.log(
-  'containsForbiddenWord: ',
-  containsForbiddenWord('my password is strong')
+  "containsForbiddenWord: ",
+  containsForbiddenWord("my password is strong")
 );
 
 // Count Occurrences of a Letter
@@ -156,38 +156,38 @@ const countLetters = (str, letter) => {
   const target = letter.toLowerCase();
   return [...str.toLowerCase()].filter((char) => char === target).length;
 };
-console.log('countLetters: ', countLetters('Potterovi jsou pravá rodina', 'p'));
+console.log("countLetters: ", countLetters("Potterovi jsou pravá rodina", "p"));
 
 // Mask an Email Address
 // Task: Mask all characters in the username of an email except the first and last.
 // "sarka@email.com" => "s***a@email.com"
 const maskEmail = (email) => {
-  const atPosition = email.indexOf('@');
+  const atPosition = email.indexOf("@");
   const user = email.slice(0, atPosition);
   const domain = email.slice(atPosition);
   if (user.length <= 2) return email;
 
-  const masked = user[0] + '*'.repeat(user.length - 2) + user.slice(-1);
+  const masked = user[0] + "*".repeat(user.length - 2) + user.slice(-1);
   return `${masked}${domain}`;
 };
-console.log('maskEmail: ', maskEmail('potteristhechosenone@email.com'));
+console.log("maskEmail: ", maskEmail("potteristhechosenone@email.com"));
 
 // Reverse string with loop
 const reverseString1 = (str) => {
-  const array = str.split('');
+  const array = str.split("");
   let reverseArray = [];
   for (let i = str.length - 1; i >= 0; i--) {
     reverseArray.push(array[i]);
   }
-  return reverseArray.join('');
+  return reverseArray.join("");
 };
-console.log('reverseString1: ', reverseString1('welcome'));
+console.log("reverseString1: ", reverseString1("welcome"));
 
 // Reverse string with string methods
 const reverseString2 = (str) => {
-  return str.split('').reverse().join('');
+  return str.split("").reverse().join("");
 };
-console.log('reverseString2: ', reverseString2('hello'));
+console.log("reverseString2: ", reverseString2("hello"));
 
 // Find Max with loop
 const findMaxLoop = (arr) => {
@@ -198,13 +198,13 @@ const findMaxLoop = (arr) => {
   return highestNumber;
 };
 
-console.log('findMaxLoop: ', findMaxLoop([-10, -5, -3, -1])); // Output: 8
+console.log("findMaxLoop: ", findMaxLoop([-10, -5, -3, -1])); // Output: 8
 
 // Find Max with array methods
 const findMaxMethod = (arr) => {
   return Math.max(...arr);
 };
-console.log('findMaxMethod: ', findMaxMethod([-10, -5, -3, -1])); // Output: 8
+console.log("findMaxMethod: ", findMaxMethod([-10, -5, -3, -1])); // Output: 8
 
 // Split the string into pairs of two characters, return array of strings
 const splitToTwo = (str) => {
@@ -215,7 +215,7 @@ const splitToTwo = (str) => {
     const theRest = remainingString.slice(2);
 
     if (twoChar.length === 1) {
-      arrayOfPairs.push(twoChar + '_');
+      arrayOfPairs.push(twoChar + "_");
     } else {
       arrayOfPairs.push(twoChar);
     }
@@ -225,14 +225,14 @@ const splitToTwo = (str) => {
 
   return arrayOfPairs;
 };
-console.log('splitToTwo: ', splitToTwo('abcde'));
+console.log("splitToTwo: ", splitToTwo("abcde"));
 
 // Split the string into pairs of two characters, return array of strings - with regex
 const splitToTwoRegex = (str) => {
-  if (str.length % 2 !== 0) str += '_';
+  if (str.length % 2 !== 0) str += "_";
   return str.match(/.{2}/g) || [];
 };
-console.log('splitToTwoRegex: ', splitToTwoRegex('abcde'));
+console.log("splitToTwoRegex: ", splitToTwoRegex("abcde"));
 // we use a regex (/.{2}/g) to match every 2 characters.
 //    / ... / — this is just the regex literal syntax in JavaScript.
 //    . — matches any character (except line breaks).
@@ -248,30 +248,30 @@ const squareSum = (numbers) => {
   }
   return result;
 };
-console.log('squareSum: ', squareSum([1, 2, 3, 5, 7]));
+console.log("squareSum: ", squareSum([1, 2, 3, 5, 7]));
 
 // Square and sum array of numbers - with reduce
 const squareSumReduce = (numbers) => {
   return numbers.reduce((prev, curr) => prev + curr * curr, 0);
 };
-console.log('squareSumReduce: ', squareSumReduce([1, 2, 3, 5, 7]));
+console.log("squareSumReduce: ", squareSumReduce([1, 2, 3, 5, 7]));
 
 // Break camel case with " "
 const breakCamelCase = (string) => {
   if (string.length === 0) {
-    return '';
+    return "";
   }
 
-  return string.split(/(?=[A-Z])/g).join(' ');
+  return string.split(/(?=[A-Z])/g).join(" ");
 };
-console.log('breakCamelCase: ', breakCamelCase('camelCasingIsCool'));
+console.log("breakCamelCase: ", breakCamelCase("camelCasingIsCool"));
 // add (?=...) to the regex in order to not discard the chars we are looking for
 
 // Generate # - must start with #, all first letters capitalized, no longer than 140 ch, empty returns false
 const generateHashtag = (str) => {
-  if (str.trim() === '') return false;
+  if (str.trim() === "") return false;
 
-  const wordArray = str.split(' ');
+  const wordArray = str.split(" ");
   const filteredWords = wordArray.filter((item) => {
     return item;
   });
@@ -280,13 +280,13 @@ const generateHashtag = (str) => {
     return word.charAt(0).toUpperCase() + word.slice(1);
   });
 
-  const hashtag = `#${capitalizedWords.join('')}`;
+  const hashtag = `#${capitalizedWords.join("")}`;
   return hashtag.length > 140 ? false : hashtag;
 };
-console.log('generateHashtag: ', generateHashtag('    Hello     World   '));
+console.log("generateHashtag: ", generateHashtag("    Hello     World   "));
 console.log(
-  'generateHashtag: ',
-  generateHashtag(' Hello there thanks for trying my Kata')
+  "generateHashtag: ",
+  generateHashtag(" Hello there thanks for trying my Kata")
 );
 
 // Turn Roman numeral as  argument into a numeric decimal integer without validating the form of the Roman numeral.
@@ -327,7 +327,7 @@ const romanToDecimal = (str) => {
   }
   return year;
 };
-console.log('romanToDecimal: ', romanToDecimal('MDCLXVI'));
+console.log("romanToDecimal: ", romanToDecimal("MDCLXVI"));
 
 // Given an array of integers, remove the smallest value. Do not mutate the original array/list.
 const removeSmallest = (arr) => {
@@ -338,17 +338,17 @@ const removeSmallest = (arr) => {
   newArray.splice(atPosition, 1);
   return newArray;
 };
-console.log('removeSmallest: ', removeSmallest([1, 2, 3, 4, 5]));
-console.log('removeSmallest: ', removeSmallest([5, 3, 2, 1, 4]));
-console.log('removeSmallest: ', removeSmallest([]));
+console.log("removeSmallest: ", removeSmallest([1, 2, 3, 4, 5]));
+console.log("removeSmallest: ", removeSmallest([5, 3, 2, 1, 4]));
+console.log("removeSmallest: ", removeSmallest([]));
 
 // Function that adds two numbers together and returns their sum in binary. The conversion can be done before, or after the addition.
 const addBinary = (a, b) => {
   const sum = a + b;
   return sum.toString(2);
 };
-console.log('addBinary: ', addBinary(1, 1));
-console.log('addBinary: ', addBinary(5, 9));
+console.log("addBinary: ", addBinary(1, 1));
+console.log("addBinary: ", addBinary(5, 9));
 
 // Function, which takes a non-negative integer (seconds) as input and returns the time in a human-readable format (HH:MM:SS)
 const secondsToHuman = (seconds) => {
@@ -356,39 +356,39 @@ const secondsToHuman = (seconds) => {
   const minutes = Math.floor((seconds % 3600) / 60);
   const remainingSeconds = seconds % 60;
   return (
-    String(hours).padStart(2, '0') +
-    ':' +
-    String(minutes).padStart(2, '0') +
-    ':' +
-    String(remainingSeconds).padStart(2, '0')
+    String(hours).padStart(2, "0") +
+    ":" +
+    String(minutes).padStart(2, "0") +
+    ":" +
+    String(remainingSeconds).padStart(2, "0")
   );
 };
-console.log('secondsToHuman: ', secondsToHuman(0));
-console.log('secondsToHuman: ', secondsToHuman(59));
-console.log('secondsToHuman: ', secondsToHuman(3599));
-console.log('secondsToHuman: ', secondsToHuman(45296));
-console.log('secondsToHuman: ', secondsToHuman(86400));
-console.log('secondsToHuman: ', secondsToHuman(359999));
+console.log("secondsToHuman: ", secondsToHuman(0));
+console.log("secondsToHuman: ", secondsToHuman(59));
+console.log("secondsToHuman: ", secondsToHuman(3599));
+console.log("secondsToHuman: ", secondsToHuman(45296));
+console.log("secondsToHuman: ", secondsToHuman(86400));
+console.log("secondsToHuman: ", secondsToHuman(359999));
 
 // Function that computes the difference between two lists. The function should remove all occurrences of elements from the first list (a) that are present in the second list (b). The order of elements in the first list should be preserved in the result.
 const arrayDiff = (a, b) => {
   return a.filter((item) => !b.includes(item));
 };
-console.log('arrayDiff: ', arrayDiff([1, 2], [2]));
-console.log('arrayDiff: ', arrayDiff([1, 2, 2, 2, 3], [2]));
+console.log("arrayDiff: ", arrayDiff([1, 2], [2]));
+console.log("arrayDiff: ", arrayDiff([1, 2, 2, 2, 3], [2]));
 
 // var result = solution("apples, pears # and bananas\ngrapes\nbananas !apples", ["#", "!"])
 // result should == "apples, pears\ngrapes\nbananas"
 const segmentText = (text, markers) => {
   const pattern = new RegExp(
-    `\\s*[${markers.map((m) => '\\' + m).join('')}].*$`
+    `\\s*[${markers.map((m) => "\\" + m).join("")}].*$`
   );
 
-  const linesArray = text.split('\n');
+  const linesArray = text.split("\n");
   const wordsArray = linesArray.map((item) =>
-    item.replace(pattern, '').trimEnd()
+    item.replace(pattern, "").trimEnd()
   );
-  return wordsArray.join('\n');
+  return wordsArray.join("\n");
 };
 
 // regex patern: \s*[#|!].*$
@@ -398,56 +398,56 @@ const segmentText = (text, markers) => {
 // .*$ grabs everything to the end of the line
 
 console.log(
-  'segmentText: ',
-  segmentText('apples, pears # and bananas\ngrapes\nbananas !apples', [
-    '#',
-    '!',
+  "segmentText: ",
+  segmentText("apples, pears # and bananas\ngrapes\nbananas !apples", [
+    "#",
+    "!",
   ])
 );
 
 const segmentTextElegant = (text, markers) => {
-  const linesArray = text.split('\n');
+  const linesArray = text.split("\n");
   const wordsArray = linesArray.map((str) =>
     markers.reduce((stri, mark) => stri.split(mark)[0], str).trimEnd()
   );
-  return wordsArray.join('\n');
+  return wordsArray.join("\n");
 };
 console.log(
-  'segmentTextElegant: ',
-  segmentTextElegant('apples, pears # and bananas\ngrapes\nbananas !apples', [
-    '#',
-    '!',
+  "segmentTextElegant: ",
+  segmentTextElegant("apples, pears # and bananas\ngrapes\nbananas !apples", [
+    "#",
+    "!",
   ])
 );
 
 // Decode morse - part 1 - with external dictionary
 const decodeMorse = (morseCode) => {
-  const codeWords = morseCode.trim().split('   ');
+  const codeWords = morseCode.trim().split("   ");
   const morse = codeWords.map((word) => {
-    const codeLetters = word.split(' ');
+    const codeLetters = word.split(" ");
     const toWords = codeLetters.map((letter) => MORSE_CODE[letter]);
-    return toWords.join('');
+    return toWords.join("");
   });
-  return morse.join(' ');
+  return morse.join(" ");
 };
 
 // Given a string, replace every letter with its position in the alphabet.
 const alphabetPosition = (text) => {
-  const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+  const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
   const message = text.toLowerCase();
-  let codedMessage = '';
+  let codedMessage = "";
   for (let i = 0; i < message.length; i++) {
     if (alphabet.includes(message[i])) {
-      codedMessage += alphabet.indexOf(message[i]) + 1 + ' ';
+      codedMessage += alphabet.indexOf(message[i]) + 1 + " ";
     }
   }
   return codedMessage.trim();
 };
-console.log('alphabetPosition: ', alphabetPosition('V elipse spí lev.'));
+console.log("alphabetPosition: ", alphabetPosition("V elipse spí lev."));
 
 // Return the number (count) of vowels in the given string. (excluding y)
 const getCount = (str) => {
-  const vowels = 'aeiou';
+  const vowels = "aeiou";
   let vowCount = 0;
   for (let i = 0; i < str.length; i++) {
     if (vowels.includes(str[i])) {
@@ -461,4 +461,28 @@ const getCount = (str) => {
 // Write a function that will take the number of petals of each flower and return true if they are in love and false if they aren't.
 const areInLove = (flower1, flower2) => {
   return (flower1 + flower2) % 2 === 1;
+};
+
+// Tribonacci
+const tribonacci = (signature, n) => {
+  let tribonacciArray = [];
+  if (n !== 0) {
+    if (n <= 3) {
+      for (let i = 0; i < n; i++) {
+        tribonacciArray.push(signature[i]);
+      }
+      return tribonacciArray;
+    }
+
+    for (let i = 0; i < 3; i++) {
+      tribonacciArray.push(signature[i]);
+    }
+
+    for (let i = 2; i < n - 1; i++) {
+      let nextNumber =
+        tribonacciArray[i] + tribonacciArray[i - 1] + tribonacciArray[i - 2];
+      tribonacciArray.push(nextNumber);
+    }
+  }
+  return tribonacciArray;
 };
