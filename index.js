@@ -519,3 +519,8 @@ const openOrSenior = (data) => {
 const sumOddNumbers = (n) => {
   return n ** 3;
 };
+
+// Remove exclamation marks from a string
+const removeExclamationMarks = (str) => {
+  return str.replace(/\!/g, "");
+};
