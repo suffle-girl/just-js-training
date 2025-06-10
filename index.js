@@ -547,3 +547,8 @@ const likes = (names) => {
       } others like this`;
   }
 };
+
+// Sum numeric value of string and return it as a string
+const sumStrings = (a, b) => {
+  return String(BigInt(a) + BigInt(b));
+};
