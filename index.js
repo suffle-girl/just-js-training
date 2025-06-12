@@ -562,3 +562,13 @@ const squareDigits = (num) => {
   }
   return Number(result.join(""));
 };
+
+// Given a random non-negative number, you have to return the digits of this number within an array in reverse order.
+const digitize = (n) => {
+  const stringNumber = String(n);
+  const newArray = [];
+  for (let i = 0; i < stringNumber.length; i++) {
+    newArray.push(Number(stringNumber[i]));
+  }
+  return newArray.reverse();
+};
