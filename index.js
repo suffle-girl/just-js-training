@@ -581,3 +581,7 @@ const smashAround = (words) => {
   }
   return sentence.trim();
 };
+
+const smash = (words) => {
+  return words.join(' ');
+};
