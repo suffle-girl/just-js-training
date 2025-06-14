@@ -603,3 +603,22 @@ const findOdd = (A) => {
 console.log('findOdd: ', findOdd([7]));
 console.log('findOdd: ', findOdd([1, 1, 2]));
 console.log('findOdd: ', findOdd([1, 2, 2, 3, 3, 3, 4, 3, 3, 3, 2, 2, 1]));
+
+// array solution:
+const findOddArray = (A) => {
+  let finalResult = 0;
+
+  A.forEach((num) => {
+    const howManyTimes = A.filter((item) => item === num).length;
+    if (howManyTimes % 2 === 1) {
+      finalResult = num;
+    }
+  });
+  return finalResult;
+};
+console.log('findOddArray: ', findOddArray([7]));
+console.log('findOddArray: ', findOddArray([1, 1, 2]));
+console.log(
+  'findOddArray: ',
+  findOddArray([1, 2, 2, 3, 3, 3, 4, 3, 3, 3, 2, 2, 1])
+);
