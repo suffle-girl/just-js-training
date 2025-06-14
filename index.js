@@ -585,3 +585,21 @@ const smashAround = (words) => {
 const smash = (words) => {
   return words.join(' ');
 };
+
+// Given an array of integers, find the one that appears an odd number of times. There will always be only one integer that appears an odd number of times.
+// object solution:
+const findOdd = (A) => {
+  let numbersArray = A;
+  let count = {};
+  for (let item of numbersArray) {
+    count[item] = (count[item] || 0) + 1;
+  }
+  for (const property in count) {
+    if (count[property] % 2 === 1) {
+      return Number(property);
+    }
+  }
+};
+console.log('findOdd: ', findOdd([7]));
+console.log('findOdd: ', findOdd([1, 1, 2]));
+console.log('findOdd: ', findOdd([1, 2, 2, 3, 3, 3, 4, 3, 3, 3, 2, 2, 1]));
