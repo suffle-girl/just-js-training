@@ -622,3 +622,17 @@ console.log(
   'findOddArray: ',
   findOddArray([1, 2, 2, 3, 3, 3, 4, 3, 3, 3, 2, 2, 1])
 );
+
+// XOR solution:
+const findOddXOR = (A) => A.reduce((a, b) => a ^ b);
+// where:
+// a, b - represent at the beginning first two number of an array, then:
+// a = accumulator → it holds the "running result" as the reduce method progresses
+// b = current element from the array that reduce method is processing
+// ^ = XOR / exclusive OR operator → if the numbers are same, they cancel themselves out, return 0; if the number is XORed by 0, it returns its value
+// example: [1, 1, 2, 2, 3]
+// 1 ^ 1 = 0
+// 0 ^ 2 = 2
+// 2 ^ 2 = 0
+// 0 ^ 3 = 3
+// → final result: 3
