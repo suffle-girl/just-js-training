@@ -636,3 +636,8 @@ const findOddXOR = (A) => A.reduce((a, b) => a ^ b);
 // 2 ^ 2 = 0
 // 0 ^ 3 = 3
 // → final result: 3
+
+// Your goal is to create a function that removes the first and last characters of a string. You're given one parameter, the original string.
+const removeChar = (str) => {
+  return str.slice(1, -1);
+};
