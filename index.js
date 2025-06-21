@@ -641,3 +641,32 @@ const findOddXOR = (A) => A.reduce((a, b) => a ^ b);
 const removeChar = (str) => {
   return str.slice(1, -1);
 };
+
+// Create a function that takes a string and returns the string ciphered with Rot13. If there are numbers or special characters included in the string, they should be returned as they are. Only letters from the latin/english alphabet should be shifted, like in the original Rot13 "implementation".
+const rot13 = (message) => {
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  const messageLow = message.toLowerCase();
+  let codedMessage = '';
+  let letterPosition = 0;
+
+  for (let i = 0; i < message.length; i++) {
+    const wasUpperCase = message[i] === message[i].toUpperCase();
+    letterPosition = alphabet.indexOf(messageLow[i]);
+
+    if (alphabet.includes(messageLow[i])) {
+      const newLetter = alphabet[(letterPosition + 13) % 26];
+      if (wasUpperCase) {
+        codedMessage += newLetter.toUpperCase();
+      } else {
+        codedMessage += newLetter;
+      }
+    } else {
+      codedMessage += message[i];
+    }
+  }
+  return codedMessage;
+};
+console.log('rot13: ', rot13('abc wXyz'));
+console.log('rot13: ', rot13('Hello, World!')); // "Hello, World!" ➝ "Uryyb, Jbeyq!"
+console.log('rot13: ', rot13('ROT13')); // "ROT13" ➝ "EBG13"
+console.log('rot13: ', rot13('123!$ abc XYZ')); // "123!$ abc XYZ" ➝ "123!$ nop KLM"
