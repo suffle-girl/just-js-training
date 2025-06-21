@@ -670,3 +670,15 @@ console.log('rot13: ', rot13('abc wXyz'));
 console.log('rot13: ', rot13('Hello, World!')); // "Hello, World!" ➝ "Uryyb, Jbeyq!"
 console.log('rot13: ', rot13('ROT13')); // "ROT13" ➝ "EBG13"
 console.log('rot13: ', rot13('123!$ abc XYZ')); // "123!$ abc XYZ" ➝ "123!$ nop KLM"
+
+// rot13 with replace and regex
+const rot13regex = (message) =>
+  message.replace(/[a-z]/gi, (char) => {
+    const base = char <= 'Z' ? 65 : 97;
+    return String.fromCharCode(((char.charCodeAt(0) - base + 13) % 26) + base);
+  });
+
+console.log('rot13regex: ', rot13regex('abc wXyz'));
+console.log('rot13regex: ', rot13regex('Hello, World!')); // "Hello, World!" ➝ "Uryyb, Jbeyq!"
+console.log('rot13regex: ', rot13regex('ROT13')); // "ROT13"regex" ➝ "EBG13"
+console.log('rot13regex: ', rot13regex('123!$ abc XYZ')); // "123!$ abc XYZ" ➝ "123!$ nop KLM"
