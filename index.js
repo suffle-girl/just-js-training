@@ -682,3 +682,40 @@ console.log('rot13regex: ', rot13regex('abc wXyz'));
 console.log('rot13regex: ', rot13regex('Hello, World!')); // "Hello, World!" ➝ "Uryyb, Jbeyq!"
 console.log('rot13regex: ', rot13regex('ROT13')); // "ROT13"regex" ➝ "EBG13"
 console.log('rot13regex: ', rot13regex('123!$ abc XYZ')); // "123!$ abc XYZ" ➝ "123!$ nop KLM"
+
+// This time we want to write calculations using functions and get the results. Let's have a look at some examples:
+// seven(times(five())); // must return 35
+// four(plus(nine())); // must return 13
+// eight(minus(three())); // must return 5
+// six(dividedBy(two())); // must return 3
+const zero = (operation = (n) => n) => operation(0);
+const one = (operation = (n) => n) => operation(1);
+const two = (operation = (n) => n) => operation(2);
+const three = (operation = (n) => n) => operation(3);
+const four = (operation = (n) => n) => operation(4);
+const five = (operation = (n) => n) => operation(5);
+const six = (operation = (n) => n) => operation(6);
+const seven = (operation = (n) => n) => operation(7);
+const eight = (operation = (n) => n) => operation(8);
+const nine = (operation = (n) => n) => operation(9);
+
+const plus = (rightNumber) => {
+  return (leftNumber) => {
+    return Math.floor(leftNumber + rightNumber);
+  };
+};
+const minus = (rightNumber) => {
+  return (leftNumber) => {
+    return Math.floor(leftNumber - rightNumber);
+  };
+};
+const times = (rightNumber) => {
+  return (leftNumber) => {
+    return Math.floor(leftNumber * rightNumber);
+  };
+};
+const dividedBy = (rightNumber) => {
+  return (leftNumber) => {
+    return Math.floor(leftNumber / rightNumber);
+  };
+};
